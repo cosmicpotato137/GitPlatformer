@@ -29,7 +29,7 @@ public class PlayerMover : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
 
         //if space is pressed, jump and incriment jumps
-        if (Input.GetButtonDown("Jump") && jump == false)
+        if (Input.GetButtonDown("Jump") && !jump)
         {
             jump = true;
         }
@@ -47,7 +47,7 @@ public class PlayerMover : MonoBehaviour
             crouch = false;
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         // Move the character
         playerController.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);

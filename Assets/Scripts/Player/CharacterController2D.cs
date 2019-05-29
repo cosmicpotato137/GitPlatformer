@@ -21,6 +21,7 @@ public class CharacterController2D : MonoBehaviour
     private Rigidbody2D m_Rigidbody2D;              // Player rigid body
     private bool m_FacingRight = true;              // For determining which way the player is currently facing.
     private Vector3 m_Velocity = Vector3.zero;      // Velocity of player
+    private bool m_Attacking;                       // If the player is in an attack animation
     private bool m_Grounded;                        // Whether or not the player is grounded.
     private float jumpTime = 0;                     // How long the player has been in the air
     
@@ -60,6 +61,7 @@ public class CharacterController2D : MonoBehaviour
         {
             m_Grounded = true;
             if (!wasGrounded)
+                Debug.Log("Landed");
                 OnLandEvent.Invoke();
         }
         else
@@ -114,8 +116,13 @@ public class CharacterController2D : MonoBehaviour
                 }
             }
 
-            // Move the character by finding the target velocity
+
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+            if ((m_Attacking || Input.GetButton("Fire1")) && m_Grounded)
+            {
+                targetVelocity = Vector2.zero;   
+            }
+
             // And then smoothing it out and applying it to the character
             m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
@@ -175,9 +182,21 @@ public class CharacterController2D : MonoBehaviour
         {
             animator.SetBool("isRunning", false);
         }
+    }
 
-        Debug.Log(animator.GetBool("isGrounded"));
+    public void Attack(bool isThrowing, bool isHitting)
+    {
+        m_Attacking = animator.GetCurrentAnimatorStateInfo(0).IsName("KnifeThrow");
+        Debug.Log(m_Attacking);
 
+        if (isThrowing && !m_Attacking)
+        {
+            animator.SetTrigger("attack");
+        }
+        else
+        {
+            animator.ResetTrigger("attack");
+        }
     }
 
     //
@@ -195,9 +214,9 @@ public class CharacterController2D : MonoBehaviour
         return -1 / (1 + Mathf.Pow(20000, -time + .5f)) + 1;
     }
 
+    // Switch the way the player is labelled as facing.
     private void Flip()
     {
-        // Switch the way the player is labelled as facing.
         m_FacingRight = !m_FacingRight;
 
         // Multiply the player's x local scale by -1.
