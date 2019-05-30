@@ -108,6 +108,7 @@ public class Knife : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground") && thrown)
         {
+            landed = true;
             rb.simulated = false;
             rb.velocity = Vector2.zero;
             knifeMask.enabled = true;

@@ -33,6 +33,11 @@ public class PlayerAttack : MonoBehaviour
         {
             isThrowing = false;
         }
+
+        if (Input.GetKeyDown("a") && isThrown)
+        {
+
+        }
     }
 
     void FixedUpdate()
