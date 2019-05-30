@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private GameObject knife;          // What is the knife?
     [SerializeField] private Vector2 throwVelocity;     // What is the throw velocity?
 
-    private CharacterController2D playerController;   // Accesses the player controller from the player
-    private Knife knifeController;              // Accesses the knife controller from knife
-    private bool isThrowing = false;            // If the player is saucein'
-    private bool isHitting = false;             // If the player is slappin'
-    private bool isThrown = false;              // If the knive is flappin'
+    private CharacterController2D playerController;     // Accesses the player controller from the player
+    private Knife knifeController;                      // Accesses the knife controller from knife
+    private bool isThrowing = false;                    // If the player is scrappin'
+    private bool isHitting = false;                     // If the player is slappin'
+    private bool isThrown = false;                      // If the knive is flappin'
 
     // Start is called before the first frame update
     void Start()
     {
         //find the player controller and knife controller
         playerController = GetComponent<CharacterController2D>();
-        knifeController = knife.GetComponent<Knife>();
     }
 
     // Update is called once per frame

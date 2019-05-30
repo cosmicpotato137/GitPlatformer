@@ -168,6 +168,7 @@ public class CharacterController2D : MonoBehaviour
             {
                 m_Rigidbody2D.AddForce(new Vector2(0, jumpVel * m_JumpVel));
             }
+            //if force would be negative, instead it is 0
             else
             {
                 m_Rigidbody2D.AddForce(Vector2.zero);
@@ -208,17 +209,6 @@ public class CharacterController2D : MonoBehaviour
 
         StartCoroutine(knifeController.KnifeThrow(throwVelocity));
         OnThrowEvent.Invoke();
-
-        /*
-        if (isThrowing && !m_Attacking)
-        {
-            animator.SetTrigger("throwKnife");
-        }
-        else
-        {
-            animator.ResetTrigger("throwKnife");
-        }
-        */
     }
 
     //
@@ -241,9 +231,6 @@ public class CharacterController2D : MonoBehaviour
     {
         m_FacingRight = !m_FacingRight;
 
-        // Multiply the player's x local scale by -1.
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        transform.rotation *= Quaternion.Euler(0, 180, 0);
     }
 }

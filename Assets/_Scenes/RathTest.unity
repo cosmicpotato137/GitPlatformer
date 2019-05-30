@@ -136,7 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3e7107ba0f0894291c071c03de263c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knife: {fileID: 643551010}
   throwVelocity: {x: 15, y: 5}
 --- !u!4 &169790894 stripped
 Transform:
@@ -342,10 +341,11 @@ GameObject:
   m_Component:
   - component: {fileID: 643551013}
   - component: {fileID: 643551012}
+  - component: {fileID: 643551016}
   - component: {fileID: 643551011}
   - component: {fileID: 643551015}
   - component: {fileID: 643551014}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Knife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2063497473
   m_SortingLayer: 3
-  m_SortingOrder: 5
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 386c9dc57ed092640b57997c788f93e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -419,7 +419,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!4 &643551013
 Transform:
@@ -429,7 +429,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643551010}
   m_LocalRotation: {x: -0, y: -0, z: -0.24775085, w: 0.9688238}
-  m_LocalPosition: {x: 4.435, y: 3.7409103, z: 0}
+  m_LocalPosition: {x: 5.328, y: 3.7409103, z: 0}
   m_LocalScale: {x: 0.11251122, y: 0.11251122, z: 0.112510934}
   m_Children:
   - {fileID: 854176885}
@@ -456,22 +456,6 @@ MonoBehaviour:
   whatIsStickable:
     serializedVersion: 2
     m_Bits: 1024
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 643551014}
-        m_MethodName: StopCoroutine
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: KnifeThrow
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!60 &643551015
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -488,7 +472,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.4992792, y: 0.2294695}
+    pivot: {x: 0.5000472, y: 0.22876404}
     oldSize: {x: 10.24, y: 10.24}
     newSize: {x: 10.24, y: 10.24}
     adaptiveTilingThreshold: 0.5
@@ -568,6 +552,53 @@ PolygonCollider2D:
       - {x: 0.15738098, y: -1.1197674}
       - {x: 0.25738096, y: -1.0497674}
       - {x: 0.357381, y: -0.98976743}
+--- !u!331 &643551016
+SpriteMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643551010}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 1087c9df3481fa745a4a2499e929ca82, type: 3}
+  m_MaskAlphaCutoff: 0.014
+  m_FrontSortingLayerID: 2063497473
+  m_BackSortingLayerID: 0
+  m_FrontSortingLayer: 3
+  m_BackSortingLayer: 0
+  m_FrontSortingOrder: 6
+  m_BackSortingOrder: 0
+  m_IsCustomRangeActive: 1
+  m_SpriteSortPoint: 0
 --- !u!4 &645250204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1612516131649070335, guid: a4d55382ae1a40a408372924ae15055a,
@@ -1140,7 +1171,7 @@ GameObject:
   - component: {fileID: 1527049038}
   m_Layer: 10
   m_Name: Level
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1481,6 +1512,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1612516131029745727, guid: a4d55382ae1a40a408372924ae15055a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612516131029745727, guid: a4d55382ae1a40a408372924ae15055a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612516132101704130, guid: a4d55382ae1a40a408372924ae15055a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1612516131029523463, guid: a4d55382ae1a40a408372924ae15055a,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -1560,11 +1606,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1612516132101704130, guid: a4d55382ae1a40a408372924ae15055a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1612516131029523465, guid: a4d55382ae1a40a408372924ae15055a,
         type: 3}
@@ -1814,7 +1855,7 @@ PrefabInstance:
     - target: {fileID: 1612516132101704132, guid: a4d55382ae1a40a408372924ae15055a,
         type: 3}
       propertyPath: OnThrowEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1612516132101704132, guid: a4d55382ae1a40a408372924ae15055a,
         type: 3}
@@ -1825,11 +1866,76 @@ PrefabInstance:
         type: 3}
       propertyPath: OnThrowEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 643551010}
+      objectReference: {fileID: 86221146}
     - target: {fileID: 1612516132101704132, guid: a4d55382ae1a40a408372924ae15055a,
         type: 3}
       propertyPath: weapon
       value: 
       objectReference: {fileID: 643551010}
+    - target: {fileID: 1612516132101704132, guid: a4d55382ae1a40a408372924ae15055a,
+        type: 3}
+      propertyPath: knife
+      value: 
+      objectReference: {fileID: 643551010}
+    - target: {fileID: 1612516132101704132, guid: a4d55382ae1a40a408372924ae15055a,
+        type: 3}
+      propertyPath: OnThrowEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612516132101704132, guid: a4d55382ae1a40a408372924ae15055a,
+        type: 3}
+      propertyPath: OnThrowEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612516132101704132, guid: a4d55382ae1a40a408372924ae15055a,
+        type: 3}
+      propertyPath: OnThrowEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 86221146}
+    - target: {fileID: 1612516132101704132, guid: a4d55382ae1a40a408372924ae15055a,
+        type: 3}
+      propertyPath: OnThrowEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612516132101704132, guid: a4d55382ae1a40a408372924ae15055a,
+        type: 3}
+      propertyPath: OnThrowEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612516132101704132, guid: a4d55382ae1a40a408372924ae15055a,
+        type: 3}
+      propertyPath: OnThrowEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: throwKnife
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612516132101704132, guid: a4d55382ae1a40a408372924ae15055a,
+        type: 3}
+      propertyPath: OnThrowEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612516132101704132, guid: a4d55382ae1a40a408372924ae15055a,
+        type: 3}
+      propertyPath: OnThrowEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612516132101704132, guid: a4d55382ae1a40a408372924ae15055a,
+        type: 3}
+      propertyPath: OnThrowEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: throwKnife
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612516132101704131, guid: a4d55382ae1a40a408372924ae15055a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612516132101704128, guid: a4d55382ae1a40a408372924ae15055a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612516132101704133, guid: a4d55382ae1a40a408372924ae15055a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4d55382ae1a40a408372924ae15055a, type: 3}

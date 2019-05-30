@@ -9,14 +9,13 @@ using System.Collections;
 
 public class PlayerMover : MonoBehaviour
 {
-    CharacterController2D playerController;
-
     [SerializeField] private float speed = 40.0f;
 
     private float horizontalMove = 0f;              // Controlls the movement spped of the character
     private bool jump = false;                      // If the character is jumping
     private bool crouch = false;                    // If the character is crouching
     private Vector3 moveDirection = Vector3.zero;   // The direction in which the character is moving
+    CharacterController2D playerController;         // The player controller
 
     void Start()
     {
