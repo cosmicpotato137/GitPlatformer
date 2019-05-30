@@ -6,7 +6,7 @@ Preset:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CharacterController2D_Movement2
+  m_Name: CharacterMovement2
   m_TargetType:
     m_NativeTypeID: 114
     m_ManagedTypePPtr: {fileID: 11500000, guid: 707d66b22c96dad4292b6f1421f716ea,
@@ -51,7 +51,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_WhatIsGround.m_Bits
-    value: 256
+    value: 1024
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_GroundCheck
@@ -64,6 +64,15 @@ Preset:
   - target: {fileID: 0}
     propertyPath: m_CrouchDisableCollider
     value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: OnJumpEvent.m_PersistentCalls.m_Calls.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: OnJumpEvent.m_TypeName
+    value: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.size

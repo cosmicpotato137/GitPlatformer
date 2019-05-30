@@ -4,25 +4,32 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    //public GameObject knife;
+    [SerializeField] private GameObject knife;          // What is the knife?
+    [SerializeField] private Vector2 throwVelocity;     // What is the throw velocity?
 
-    private CharacterController2D controller;
-    private bool isThrowing = false;
-    private bool isHitting = false;
+    private CharacterController2D playerController;   // Accesses the player controller from the player
+    private Knife knifeController;              // Accesses the knife controller from knife
+    private bool isThrowing = false;            // If the player is saucein'
+    private bool isHitting = false;             // If the player is slappin'
+    private bool isThrown = false;              // If the knive is flappin'
 
     // Start is called before the first frame update
     void Start()
     {
-        controller = GetComponent<CharacterController2D>();
+        //find the player controller and knife controller
+        playerController = GetComponent<CharacterController2D>();
+        knifeController = knife.GetComponent<Knife>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire1"))
+        //determine weather the knife is being thrown
+        if (Input.GetButton("Fire1") && !isThrown)
         {
-            Debug.Log("Attack!");
             isThrowing = true;
+            isThrown = true;
+            StartCoroutine(knifeController.KnifeThrow(throwVelocity));
         }
         else
         {
@@ -32,6 +39,7 @@ public class PlayerAttack : MonoBehaviour
 
     void FixedUpdate()
     {
-        controller.Attack(isThrowing, isHitting);
+        //throw the knife
+        playerController.ThrowKnife(isThrowing);
     }
 }

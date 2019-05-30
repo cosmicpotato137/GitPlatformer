@@ -11,13 +11,12 @@ public class PlayerMover : MonoBehaviour
 {
     CharacterController2D playerController;
 
-    public float speed = 40.0f;
+    [SerializeField] private float speed = 40.0f;
 
-    float horizontalMove = 0f;
-    bool jump = false;
-    bool crouch = false;
-
-    private Vector3 moveDirection = Vector3.zero;
+    private float horizontalMove = 0f;              // Controlls the movement spped of the character
+    private bool jump = false;                      // If the character is jumping
+    private bool crouch = false;                    // If the character is crouching
+    private Vector3 moveDirection = Vector3.zero;   // The direction in which the character is moving
 
     void Start()
     {
@@ -26,6 +25,7 @@ public class PlayerMover : MonoBehaviour
 
     void Update()
     {
+        //controlls the speed of the character
         horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
 
         //if space is pressed, jump and incriment jumps
