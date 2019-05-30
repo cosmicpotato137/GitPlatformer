@@ -84,6 +84,15 @@ Preset:
       Culture=neutral, PublicKeyToken=null
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: OnThrowEvent.m_PersistentCalls.m_Calls.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: OnThrowEvent.m_TypeName
+    value: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.size
     value: 0
     objectReference: {fileID: 0}

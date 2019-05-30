@@ -3,16 +3,18 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
+
+    [SerializeField] private GameObject knife;                                    // The player's weapon
     [SerializeField] private float m_JumpVel = .13f;                               // Upward jumping force
     [SerializeField] private float m_JumpHeight = 10;                              // How high to jump **note this is an inverse value. the higher the m_JumpHeight
     [SerializeField] private float m_AirStop = 1;                                  // How quickly the player stops going up after space is released
     [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;             // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;     // How much to smooth out the movement
     [SerializeField] private bool m_AirControl = false;                            // Whether or not a player can steer while jumping;
-    [SerializeField] private LayerMask m_WhatIsGround;                                      // A mask determining what is ground to the character
-    [SerializeField] private Transform m_GroundCheck;                                       // A position marking where to check if the player is grounded.
-    [SerializeField] private Transform m_CeilingCheck;                                      // A position marking where to check for ceilings
-    [SerializeField] private Collider2D m_CrouchDisableCollider;                            // A collider that will be disabled when crouching
+    [SerializeField] private LayerMask m_WhatIsGround;                             // A mask determining what is ground to the character
+    [SerializeField] private Transform m_GroundCheck;                              // A position marking where to check if the player is grounded.
+    [SerializeField] private Transform m_CeilingCheck;                             // A position marking where to check for ceilings
+    [SerializeField] private Collider2D m_CrouchDisableCollider;                   // A collider that will be disabled when crouching
 
                
     const float k_GroundRadius = .2f;               // Radius of the overlap circle to determine if the player is grounded
@@ -24,7 +26,7 @@ public class CharacterController2D : MonoBehaviour
     private bool m_Grounded;                        // Whether or not the player is grounded.
     private float jumpTime = 0;                     // How long the player has been in the air
     private Animator animator;                      // Controlls the animations for the player
-
+    private Knife knifeController;
 
 
 
@@ -32,8 +34,8 @@ public class CharacterController2D : MonoBehaviour
     [Space]
 
     public UnityEvent OnJumpEvent;
-
     public UnityEvent OnLandEvent;
+    public UnityEvent OnThrowEvent;
 
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
@@ -45,13 +47,16 @@ public class CharacterController2D : MonoBehaviour
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        knifeController = knife.GetComponent<Knife>();
 
-        if (OnJumpEvent == null){
+        if (OnJumpEvent == null)
             OnJumpEvent = new UnityEvent();
-        }
 
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
+
+        if (OnThrowEvent == null)
+            OnThrowEvent = new UnityEvent();
 
         if (OnCrouchEvent == null)
             OnCrouchEvent = new BoolEvent();
@@ -69,7 +74,6 @@ public class CharacterController2D : MonoBehaviour
         {
             m_Grounded = true;
             if (!wasGrounded)
-                Debug.Log("Landed");
                 OnLandEvent.Invoke();
         }
         else
@@ -124,7 +128,6 @@ public class CharacterController2D : MonoBehaviour
                 }
             }
 
-
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
             if ((m_Attacking || Input.GetButton("Fire1")) && m_Grounded)
             {
@@ -151,7 +154,11 @@ public class CharacterController2D : MonoBehaviour
         // Lots of conditions for the player to go up
         if (jump)
         {
- 
+            if (jumpTime == 0)
+            {
+                OnJumpEvent.Invoke();
+            }
+
             jumpTime += Time.fixedDeltaTime;
 
             float jumpVel = LinearVelDec(jumpTime, m_JumpHeight);
@@ -179,7 +186,6 @@ public class CharacterController2D : MonoBehaviour
             jumpTime = 0;
         }
 
-        //Controlls player animations
         animator.SetFloat("velocityY", m_Rigidbody2D.velocity.y);
         animator.SetBool("isGrounded", m_Grounded);
 
@@ -191,13 +197,19 @@ public class CharacterController2D : MonoBehaviour
         {
             animator.SetBool("isRunning", false);
         }
-
     }
 
-    public void ThrowKnife(bool isThrowing)
+    public void ThrowKnife(Vector2 throwVelocity)
     {
-        m_Attacking = animator.GetCurrentAnimatorStateInfo(0).IsName("KnifeThrow");
+        if (!m_FacingRight)
+        {
+            throwVelocity = new Vector2(-throwVelocity.x, throwVelocity.y);
+        }
 
+        StartCoroutine(knifeController.KnifeThrow(throwVelocity));
+        OnThrowEvent.Invoke();
+
+        /*
         if (isThrowing && !m_Attacking)
         {
             animator.SetTrigger("throwKnife");
@@ -206,6 +218,7 @@ public class CharacterController2D : MonoBehaviour
         {
             animator.ResetTrigger("throwKnife");
         }
+        */
     }
 
     //

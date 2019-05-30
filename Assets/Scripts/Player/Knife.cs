@@ -64,7 +64,7 @@ public class Knife : MonoBehaviour
         else if (thrown)
         {
             float velDir = (Mathf.Asin(rb.velocity.normalized.y) / (2 * Mathf.PI) * 360) - 90;
-            Debug.Log(rb.velocity.normalized.y);
+            Debug.Log(velDir);
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, velDir));
         }
         else if (thrown && landed)

@@ -29,7 +29,7 @@ public class PlayerAttack : MonoBehaviour
         {
             isThrowing = true;
             isThrown = true;
-            StartCoroutine(knifeController.KnifeThrow(throwVelocity));
+            playerController.ThrowKnife(throwVelocity);
         }
         else
         {
@@ -40,6 +40,6 @@ public class PlayerAttack : MonoBehaviour
     void FixedUpdate()
     {
         //throw the knife
-        playerController.ThrowKnife(isThrowing);
+        //playerController.ThrowKnife(throwVelocity);
     }
 }
