@@ -5,10 +5,13 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private Vector2 throwVelocity;     // What is the throw velocity?
+    [SerializeField] private float returnSpeed;
+    [SerializeField] private float catchDistance;       // What distance to catch the knife at
 
     private CharacterController2D playerController;     // Accesses the player controller from the player
     private Knife knifeController;                      // Accesses the knife controller from knife
     private bool isThrowing = false;                    // If the player is scrappin'
+    private bool isReturning = false;
     private bool isHitting = false;                     // If the player is slappin'
     private bool isThrown = false;                      // If the knive is flappin'
 
@@ -23,26 +26,26 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         //determine weather the knife is being thrown
-        if (Input.GetButton("Fire1") && !isThrown)
+        if (Input.GetButtonDown("Fire1"))
         {
+            Debug.Log("Attack");
             isThrowing = true;
-            isThrown = true;
-            playerController.ThrowKnife(throwVelocity);
         }
         else
-        {
             isThrowing = false;
-        }
 
-        if (Input.GetKeyDown("a") && isThrown)
+        if (Input.GetKey(KeyCode.A))
         {
-
+            Debug.Log("Return");
+            isReturning = true;
         }
+        else
+            isReturning = false;
     }
 
     void FixedUpdate()
     {
         //throw the knife
-        //playerController.ThrowKnife(throwVelocity);
+        playerController.Attack(throwVelocity, returnSpeed, catchDistance, isThrowing, isReturning);
     }
 }

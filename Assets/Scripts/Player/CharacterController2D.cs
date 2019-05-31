@@ -36,6 +36,7 @@ public class CharacterController2D : MonoBehaviour
     public UnityEvent OnJumpEvent;
     public UnityEvent OnLandEvent;
     public UnityEvent OnThrowEvent;
+    public UnityEvent OnCatchEvent;
 
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
@@ -57,6 +58,9 @@ public class CharacterController2D : MonoBehaviour
 
         if (OnThrowEvent == null)
             OnThrowEvent = new UnityEvent();
+
+        if (OnCatchEvent == null)
+            OnCatchEvent = new UnityEvent();
 
         if (OnCrouchEvent == null)
             OnCrouchEvent = new BoolEvent();
@@ -129,7 +133,7 @@ public class CharacterController2D : MonoBehaviour
             }
 
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
-            if ((m_Attacking || Input.GetButton("Fire1")) && m_Grounded)
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("KnifeThrow") && m_Grounded)
             {
                 targetVelocity = Vector2.zero;
             }
@@ -200,15 +204,33 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-    public void ThrowKnife(Vector2 throwVelocity)
+    public void Attack(Vector2 throwVelocity, float returnSpeed, float catchDistance, bool isThrowing, bool isReturning)
     {
-        if (!m_FacingRight)
+        float distanceFromKnife = knifeController.targetDir.magnitude;
+
+        if (isThrowing && !knifeController.GetThrown())
         {
-            throwVelocity = new Vector2(-throwVelocity.x, throwVelocity.y);
+            Debug.Log("Throwing");
+            if (!m_FacingRight)
+                throwVelocity = new Vector2(-throwVelocity.x, throwVelocity.y);
+
+            StartCoroutine(knifeController.KnifeThrow(throwVelocity));
+            OnThrowEvent.Invoke();
+        }
+        else if (isReturning && knifeController.GetThrown() && !isThrowing)
+        { 
+            Debug.Log("returning");
+            knife.GetComponent<Rigidbody2D>().simulated = false;
+            StartCoroutine(knifeController.KnifeReturn(returnSpeed));
+
+
         }
 
-        StartCoroutine(knifeController.KnifeThrow(throwVelocity));
-        OnThrowEvent.Invoke();
+        if (distanceFromKnife < catchDistance && knifeController.GetReturning())
+        {
+            Debug.Log("Caught");
+            OnCatchEvent.Invoke();
+        }
     }
 
     //
