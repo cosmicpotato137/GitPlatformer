@@ -7,33 +7,74 @@ public class Knife : MonoBehaviour
 {
 
     [SerializeField] private GameObject player;             // The knife holder
+    [SerializeField] private float waitTime;
     [SerializeField] private Transform arm;                 // The arm for rotation of knife
     [SerializeField] private Transform hand;                // The hand for position of knife
     [SerializeField] private Vector3 handOffset;
-    [SerializeField] private float catchDistance;
     [SerializeField] private Transform landCheck;           // Where the knife detects the ground
+    [SerializeField] private Transform knifeTip;
     [SerializeField] private float landCheckRadius;         // Radius around the land check location
     [SerializeField] private LayerMask whatIsStickable;     // What the knife considers landable
 
-    public Vector3 targetDir;
+    [Header("Particle Systems")]
+    [Space]
 
-    private Rigidbody2D rb;     // Knife Rigidbody
+    [SerializeField] private ParticleSystem OnReturnParticles;
+    [SerializeField] private GameObject OnFlyParticles;
+
+
+
+    private Rigidbody2D rb;             // Knife Rigidbody
+    private Vector3 targetDir;
+    private SoundManager soundManager;  // Manages the Sound s
     private bool thrown = false;        // If the knife has been thrown
     private bool landed = false;        // If the knife has landed
     private bool returning = false;
     private SpriteMask knifeMask;
     private float returnSpeed;
+    private Animator animator;
+
+    [Header("Events")]
+    [Space]
+
+    public UnityEvent OnLandEvent;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        soundManager = GetComponentInChildren<SoundManager>();
         knifeMask = GetComponent<SpriteMask>();
+        animator = GetComponent<Animator>();
+
         knifeMask.enabled = false;
+
+        if (OnLandEvent == null)
+            OnLandEvent = new UnityEvent();
     }
 
     void Update()
     {
+        bool wasLanded = landed;
+
+        Collider2D collider = Physics2D.OverlapCircle(landCheck.position, landCheckRadius, whatIsStickable);
+        Debug.DrawLine(landCheck.position, landCheck.position + new Vector3(landCheckRadius, 0, 0));
+
+        if (collider != null)
+        {
+            landed = true;
+
+            if (!wasLanded)
+            {
+                Stick(collider);
+            }
+        }
+        else
+        {
+            knifeMask.enabled = false;
+            landed = false;
+        }
+
         //if knife is in player's hand, reset it's position and rotation
         if (!thrown)
         {
@@ -46,21 +87,16 @@ public class Knife : MonoBehaviour
             transform.rotation = VectorToRotation(rb.velocity);
         }
 
-        targetDir = (hand.position + handOffset) - transform.position;
         if (returning)
         {
-            if (!thrown)
-            {
-                Debug.Log("error");
-            }
-
+            targetDir = (hand.position + handOffset) - transform.position;
             transform.rotation = VectorToRotation(targetDir);
 
-            Vector3 newPos = hand.position;
-            transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * returnSpeed);
+            Vector3 newPos = hand.position + handOffset;
+            transform.position -= (transform.position - newPos) * Time.deltaTime * returnSpeed;
         }
-        Debug.DrawLine(transform.position, hand.position, Color.red);
 
+        Debug.DrawLine(transform.position, hand.position + handOffset, Color.red);
     }
 
     //adds a delay to the actual throw to account for the animation
@@ -74,23 +110,29 @@ public class Knife : MonoBehaviour
 
     public IEnumerator KnifeReturn(float speed)
     {
-        yield return new WaitForSeconds(.1f);
+        Instantiate(OnReturnParticles, transform.position, Quaternion.identity);
+        rb.simulated = false;
+        rb.velocity = Vector2.zero;
+        yield return new WaitForSeconds(waitTime);
+        Debug.Log("Boop");
+        
+
+        transform.parent = null;
         returnSpeed = speed;
         returning = true;
-        landed = false;
-        knifeMask.enabled = false;
+        GameObject flyParticles = Instantiate(OnFlyParticles, knifeTip.position, Quaternion.identity) as GameObject;
+        flyParticles.transform.parent = knifeTip;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void Stick(Collider2D collider)
     {
-        if (other.gameObject.CompareTag("Ground") && thrown)
+        if (thrown)
         {
-            Debug.Log("landed");
-            landed = true;
-            StopAllCoroutines();
+            returning = false;
             rb.simulated = false;
-            rb.velocity = Vector2.zero;
+            transform.parent = collider.transform;
             knifeMask.enabled = true;
+            soundManager.PlaySound(collider.tag);
         }
     }
 
@@ -109,8 +151,6 @@ public class Knife : MonoBehaviour
     {
         returning = false;
         thrown = false;
-        rb.simulated = true;
-        Debug.Log(thrown);
     }
 
     public bool GetReturning()

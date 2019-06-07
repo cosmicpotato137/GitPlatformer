@@ -28,24 +28,18 @@ public class PlayerAttack : MonoBehaviour
         //determine weather the knife is being thrown
         if (Input.GetButtonDown("Fire1"))
         {
-            Debug.Log("Attack");
             isThrowing = true;
         }
         else
             isThrowing = false;
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            Debug.Log("Return");
             isReturning = true;
         }
         else
             isReturning = false;
-    }
 
-    void FixedUpdate()
-    {
-        //throw the knife
         playerController.Attack(throwVelocity, returnSpeed, catchDistance, isThrowing, isReturning);
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
@@ -26,6 +27,7 @@ public class CharacterController2D : MonoBehaviour
     private bool m_Grounded;                        // Whether or not the player is grounded.
     private float jumpTime = 0;                     // How long the player has been in the air
     private Animator animator;                      // Controlls the animations for the player
+    private SoundManager soundManager;
     private Knife knifeController;
 
 
@@ -49,6 +51,7 @@ public class CharacterController2D : MonoBehaviour
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         knifeController = knife.GetComponent<Knife>();
+        soundManager = GetComponentInChildren<SoundManager>();
 
         if (OnJumpEvent == null)
             OnJumpEvent = new UnityEvent();
@@ -204,32 +207,41 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
+    void PlayWalkSound()
+    {
+        soundManager.PlaySound("Walk");
+    }
+
     public void Attack(Vector2 throwVelocity, float returnSpeed, float catchDistance, bool isThrowing, bool isReturning)
     {
-        float distanceFromKnife = knifeController.targetDir.magnitude;
+        float distanceFromKnife = Vector3.Magnitude(transform.position - knife.transform.position);
 
         if (isThrowing && !knifeController.GetThrown())
         {
-            Debug.Log("Throwing");
             if (!m_FacingRight)
                 throwVelocity = new Vector2(-throwVelocity.x, throwVelocity.y);
-
             StartCoroutine(knifeController.KnifeThrow(throwVelocity));
             OnThrowEvent.Invoke();
         }
-        else if (isReturning && knifeController.GetThrown() && !isThrowing)
-        { 
-            Debug.Log("returning");
-            knife.GetComponent<Rigidbody2D>().simulated = false;
+        else if (isReturning && knifeController.GetThrown() && !knifeController.GetReturning())
+        {
             StartCoroutine(knifeController.KnifeReturn(returnSpeed));
-
-
         }
 
         if (distanceFromKnife < catchDistance && knifeController.GetReturning())
         {
-            Debug.Log("Caught");
             OnCatchEvent.Invoke();
+            Debug.Log("Caught");
+        }
+    }
+
+    public void DestroyKnifeParticles()
+    {
+        GameObject[] particles = GameObject.FindGameObjectsWithTag("KnifeParticles");
+
+        foreach (GameObject p in particles)
+        {
+            Destroy(p);
         }
     }
 

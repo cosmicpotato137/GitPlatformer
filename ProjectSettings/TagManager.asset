@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Ground
   - Weapon
+  - Knife
+  - Sack
+  - Wood
+  - KnifeParticles
   layers:
   - Default
   - TransparentFX
@@ -19,7 +23,7 @@ TagManager:
   - Player
   - Ground
   - Weapon
-  - 
+  - Stickable
   - 
   - 
   - 
@@ -51,6 +55,12 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2063497473
+    locked: 0
+  - name: Lighting
+    uniqueID: 3380672307
+    locked: 0
+  - name: Roof
+    uniqueID: 1798461821
     locked: 0
   - name: Foreground
     uniqueID: 3039558147
