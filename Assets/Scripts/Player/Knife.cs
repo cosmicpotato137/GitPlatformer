@@ -12,15 +12,16 @@ public class Knife : MonoBehaviour
     [SerializeField] private Transform hand;                // The hand for position of knife
     [SerializeField] private Vector3 handOffset;
     [SerializeField] private Transform landCheck;           // Where the knife detects the ground
-    [SerializeField] private Transform knifeTip;
     [SerializeField] private float landCheckRadius;         // Radius around the land check location
+    [SerializeField] private Transform returnCheck;
+    [SerializeField] private float returnCheckDistance;
     [SerializeField] private LayerMask whatIsStickable;     // What the knife considers landable
 
     [Header("Particle Systems")]
     [Space]
 
     [SerializeField] private ParticleSystem OnReturnParticles;
-    [SerializeField] private GameObject OnFlyParticles;
+    [SerializeField] private ParticleSystem OnFlyParticles;
 
 
 
@@ -43,9 +44,13 @@ public class Knife : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.simulated = true;
+
         soundManager = GetComponentInChildren<SoundManager>();
         knifeMask = GetComponent<SpriteMask>();
         animator = GetComponent<Animator>();
+
+        
 
         knifeMask.enabled = false;
 
@@ -89,11 +94,11 @@ public class Knife : MonoBehaviour
 
         if (returning)
         {
-            targetDir = (hand.position + handOffset) - transform.position;
-            transform.rotation = VectorToRotation(targetDir);
+            
+            
 
-            Vector3 newPos = hand.position + handOffset;
-            transform.position -= (transform.position - newPos) * Time.deltaTime * returnSpeed;
+            //Vector3 newPos = hand.position + handOffset;
+            //transform.position += targetDir * Time.deltaTime * returnSpeed;
         }
 
         Debug.DrawLine(transform.position, hand.position + handOffset, Color.red);
@@ -103,6 +108,7 @@ public class Knife : MonoBehaviour
     public IEnumerator KnifeThrow(Vector2 throwVelocity)
     {
         yield return new WaitForSeconds(0.2f);
+        OnFlyParticles.Play();
         rb.simulated = true;
         rb.velocity = throwVelocity;
         thrown = true;
@@ -110,25 +116,35 @@ public class Knife : MonoBehaviour
 
     public IEnumerator KnifeReturn(float speed)
     {
-        Instantiate(OnReturnParticles, transform.position, Quaternion.identity);
-        rb.simulated = false;
-        rb.velocity = Vector2.zero;
-        yield return new WaitForSeconds(waitTime);
-        Debug.Log("Boop");
-        
+        RaycastHit2D hit = Physics2D.Raycast(returnCheck.position, hand.position - returnCheck.position, returnCheckDistance, whatIsStickable);
+        if (!hit)
+        {
+            rb.velocity = Vector2.zero;
+            rb.simulated = false;
 
-        transform.parent = null;
-        returnSpeed = speed;
-        returning = true;
-        GameObject flyParticles = Instantiate(OnFlyParticles, knifeTip.position, Quaternion.identity) as GameObject;
-        flyParticles.transform.parent = knifeTip;
+            targetDir = ((hand.position + handOffset) - transform.position).normalized;
+
+            Instantiate(OnReturnParticles, transform.position, Quaternion.identity);
+
+            yield return new WaitForSeconds(waitTime);
+            OnFlyParticles.Play();
+
+            transform.parent = null;
+            returning = true;
+
+            transform.rotation = VectorToRotation(targetDir);
+            rb.simulated = true;
+            rb.velocity = (Vector2)targetDir * speed;
+        }
     }
 
     public void Stick(Collider2D collider)
     {
         if (thrown)
         {
+            OnFlyParticles.Stop();
             returning = false;
+            rb.velocity = Vector2.zero;
             rb.simulated = false;
             transform.parent = collider.transform;
             knifeMask.enabled = true;
@@ -151,6 +167,7 @@ public class Knife : MonoBehaviour
     {
         returning = false;
         thrown = false;
+        OnFlyParticles.Stop();
     }
 
     public bool GetReturning()
@@ -160,5 +177,9 @@ public class Knife : MonoBehaviour
     public bool GetThrown()
     {
         return thrown;
+    }
+    public bool GetLanded()
+    {
+        return landed;
     }
 }

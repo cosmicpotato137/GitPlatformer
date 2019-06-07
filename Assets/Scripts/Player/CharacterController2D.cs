@@ -5,17 +5,19 @@ using UnityEngine.Events;
 public class CharacterController2D : MonoBehaviour
 {
 
-    [SerializeField] private GameObject knife;                                    // The player's weapon
-    [SerializeField] private float m_JumpVel = .13f;                               // Upward jumping force
-    [SerializeField] private float m_JumpHeight = 10;                              // How high to jump **note this is an inverse value. the higher the m_JumpHeight
-    [SerializeField] private float m_AirStop = 1;                                  // How quickly the player stops going up after space is released
-    [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;             // Amount of maxSpeed applied to crouching movement. 1 = 100%
-    [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;     // How much to smooth out the movement
-    [SerializeField] private bool m_AirControl = false;                            // Whether or not a player can steer while jumping;
-    [SerializeField] private LayerMask m_WhatIsGround;                             // A mask determining what is ground to the character
-    [SerializeField] private Transform m_GroundCheck;                              // A position marking where to check if the player is grounded.
-    [SerializeField] private Transform m_CeilingCheck;                             // A position marking where to check for ceilings
-    [SerializeField] private Collider2D m_CrouchDisableCollider;                   // A collider that will be disabled when crouching
+    [SerializeField] private GameObject knife;                                      // The player's weapon
+    [SerializeField] private Transform catchPos;
+    [SerializeField] private Vector2 catchBoxSize;
+    [SerializeField] private float m_JumpVel = .13f;                                // Upward jumping force
+    [SerializeField] private float m_JumpHeight = 10;                               // How high to jump **note this is an inverse value. the higher the m_JumpHeight
+    [SerializeField] private float m_AirStop = 1;                                   // How quickly the player stops going up after space is released
+    [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;              // Amount of maxSpeed applied to crouching movement. 1 = 100%
+    [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;      // How much to smooth out the movement
+    [SerializeField] private bool m_AirControl = false;                             // Whether or not a player can steer while jumping;
+    [SerializeField] private LayerMask m_WhatIsGround;                              // A mask determining what is ground to the character
+    [SerializeField] private Transform m_GroundCheck;                               // A position marking where to check if the player is grounded.
+    [SerializeField] private Transform m_CeilingCheck;                              // A position marking where to check for ceilings
+    [SerializeField] private Collider2D m_CrouchDisableCollider;                    // A collider that will be disabled when crouching
 
                
     const float k_GroundRadius = .2f;               // Radius of the overlap circle to determine if the player is grounded
@@ -214,7 +216,7 @@ public class CharacterController2D : MonoBehaviour
 
     public void Attack(Vector2 throwVelocity, float returnSpeed, float catchDistance, bool isThrowing, bool isReturning)
     {
-        float distanceFromKnife = Vector3.Magnitude(transform.position - knife.transform.position);
+        float distanceFromKnife = Vector3.Magnitude(catchPos.position - knife.transform.position);
 
         if (isThrowing && !knifeController.GetThrown())
         {
@@ -228,10 +230,12 @@ public class CharacterController2D : MonoBehaviour
             StartCoroutine(knifeController.KnifeReturn(returnSpeed));
         }
 
-        if (distanceFromKnife < catchDistance && knifeController.GetReturning())
+        //Debug.DrawRay(catchPos.position, Vector2.down, Color.green, catchBoxSize.x);
+        //Debug.DrawRay(catchPos.position, Vector2.left, Color.green, catchBoxSize.y);
+        if ((knifeController.GetLanded() || knifeController.GetReturning()) && distanceFromKnife < catchDistance)
         {
             OnCatchEvent.Invoke();
-            Debug.Log("Caught");
+            Debug.Log("Boop");
         }
     }
 
