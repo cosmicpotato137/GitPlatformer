@@ -109,6 +109,7 @@ public class Knife : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         OnFlyParticles.Play();
+        soundManager.PlaySound("KnifeFly");
         rb.simulated = true;
         rb.velocity = throwVelocity;
         thrown = true;
@@ -125,9 +126,12 @@ public class Knife : MonoBehaviour
             targetDir = ((hand.position + handOffset) - transform.position).normalized;
 
             Instantiate(OnReturnParticles, transform.position, Quaternion.identity);
+            OnFlyParticles.Stop();
+            soundManager.PauseSound("KnifeFly");
 
             yield return new WaitForSeconds(waitTime);
             OnFlyParticles.Play();
+            soundManager.PlaySound("KnifeFly");
 
             transform.parent = null;
             returning = true;
@@ -143,6 +147,7 @@ public class Knife : MonoBehaviour
         if (thrown)
         {
             OnFlyParticles.Stop();
+            soundManager.PauseSound("KnifeFly");
             returning = false;
             rb.velocity = Vector2.zero;
             rb.simulated = false;
@@ -168,6 +173,7 @@ public class Knife : MonoBehaviour
         returning = false;
         thrown = false;
         OnFlyParticles.Stop();
+        soundManager.PauseSound("KnifeFly");
     }
 
     public bool GetReturning()

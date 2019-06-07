@@ -10,6 +10,7 @@ TagManager:
   - Sack
   - Wood
   - KnifeParticles
+  - Stone
   layers:
   - Default
   - TransparentFX

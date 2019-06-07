@@ -4836,7 +4836,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100949509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.014073372, y: -1.6252775, z: 0}
+  m_LocalPosition: {x: 0.014070511, y: -1.6251383, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 758199469}
@@ -5174,7 +5174,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144157727}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.014074206, y: 4.485278, z: -10}
+  m_LocalPosition: {x: -0.014071345, y: 4.485139, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 100949510}
@@ -5456,7 +5456,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1798461821
   m_SortingLayer: 5
-  m_SortingOrder: 4
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: c277a586ff77b99479e5eec5ab5671d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5794,6 +5794,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 7e62f4ddde0cee442a121fb50615349b, type: 3}
     volume: 0.2
     pitch: 1
+    dimension: 0
     playOnAwake: 0
     loop: 0
     source: {fileID: 0}
@@ -5801,6 +5802,23 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b57ea761e24a9ac43886e60fe28d286c, type: 3}
     volume: 1
     pitch: 1
+    dimension: 0
+    playOnAwake: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: KnifeFly
+    clip: {fileID: 8300000, guid: 765a8540d6995344a90e2866f120d077, type: 3}
+    volume: 0.585
+    pitch: 1
+    dimension: 0.41
+    playOnAwake: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: Stone
+    clip: {fileID: 8300000, guid: c1a0b06ff410fe64096212607c83cd5f, type: 3}
+    volume: 0.585
+    pitch: 1
+    dimension: 0.41
     playOnAwake: 0
     loop: 0
     source: {fileID: 0}
@@ -6478,7 +6496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700899505}
   m_LocalRotation: {x: -0, y: -0, z: -0.24775085, w: 0.9688238}
-  m_LocalPosition: {x: 3.329, y: 2.701, z: 0}
+  m_LocalPosition: {x: 0.81, y: 1.52, z: 0}
   m_LocalScale: {x: 0.11251122, y: 0.11251122, z: 0.112510934}
   m_Children:
   - {fileID: 399397040}
@@ -6533,7 +6551,7 @@ GameObject:
   - component: {fileID: 748056080}
   m_Layer: 10
   m_Name: Stage1
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17216,6 +17234,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 0419c85179a72564588d5d47d08916e4, type: 3}
     volume: 0.4
     pitch: 1
+    dimension: 0
     playOnAwake: 0
     loop: 0
     source: {fileID: 0}
@@ -17223,6 +17242,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: aa4b6d3b88f1d3e478e60226a51c6347, type: 3}
     volume: 0.6
     pitch: 0.7
+    dimension: 0
     playOnAwake: 0
     loop: 0
     source: {fileID: 0}
@@ -17969,6 +17989,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 78d18698961912f43aeac2ec8f3f9a3e, type: 3}
     volume: 0.75
     pitch: 0.82
+    dimension: 0
     playOnAwake: 0
     loop: 0
     source: {fileID: 0}
@@ -17976,6 +17997,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8b982acc0ec908241aa2f4316e10c379, type: 3}
     volume: 0.567
     pitch: 1
+    dimension: 0
     playOnAwake: 0
     loop: 1
     source: {fileID: 0}
