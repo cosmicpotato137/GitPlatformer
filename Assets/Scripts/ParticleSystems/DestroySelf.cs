@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DestroySelf : MonoBehaviour
 {
+    public float killTime;
+
     ParticleSystem particleSystem;
 
     void Start()
@@ -15,7 +17,7 @@ public class DestroySelf : MonoBehaviour
 
     public IEnumerator Destroy()
     {
-        yield return new WaitForSeconds(particleSystem.main.duration + 3);
+        yield return new WaitForSeconds(killTime);
         Destroy(gameObject);
     }
 }

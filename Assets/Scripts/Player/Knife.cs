@@ -22,7 +22,7 @@ public class Knife : MonoBehaviour
 
     [SerializeField] private ParticleSystem OnReturnParticles;
     [SerializeField] private ParticleSystem OnFlyParticles;
-
+    [SerializeField] private ParticleSystem SandParticles;
 
 
     private Rigidbody2D rb;             // Knife Rigidbody
@@ -35,27 +35,16 @@ public class Knife : MonoBehaviour
     private float returnSpeed;
     private Animator animator;
 
-    [Header("Events")]
-    [Space]
-
-    public UnityEvent OnLandEvent;
-
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.simulated = true;
+        rb.simulated = false;
 
         soundManager = GetComponentInChildren<SoundManager>();
         knifeMask = GetComponent<SpriteMask>();
-        animator = GetComponent<Animator>();
-
-        
-
         knifeMask.enabled = false;
-
-        if (OnLandEvent == null)
-            OnLandEvent = new UnityEvent();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -154,6 +143,9 @@ public class Knife : MonoBehaviour
             transform.parent = collider.transform;
             knifeMask.enabled = true;
             soundManager.PlaySound(collider.tag);
+
+            if (collider.CompareTag("Sack"))
+                Instantiate(SandParticles, landCheck);
         }
     }
 
@@ -172,6 +164,7 @@ public class Knife : MonoBehaviour
     {
         returning = false;
         thrown = false;
+        rb.simulated = false;
         OnFlyParticles.Stop();
         soundManager.PauseSound("KnifeFly");
     }
