@@ -4836,7 +4836,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100949509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.014070511, y: -1.6251383, z: 0}
+  m_LocalPosition: {x: 0.014074326, y: -1.6253228, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 758199469}
@@ -5174,7 +5174,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144157727}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.014071345, y: 4.485139, z: -10}
+  m_LocalPosition: {x: -0.01407516, y: 4.4853234, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 100949510}
@@ -5416,7 +5416,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.9914055, y: 10.4741, z: 0}
   m_LocalScale: {x: 0.5653377, y: 0.5653377, z: 0.5653377}
-  m_Children: []
+  m_Children:
+  - {fileID: 572091119}
   m_Father: {fileID: 748056081}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5454,9 +5455,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1798461821
-  m_SortingLayer: 5
-  m_SortingOrder: 9
+  m_SortingLayerID: -403682243
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c277a586ff77b99479e5eec5ab5671d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5518,53 +5519,8 @@ PolygonCollider2D:
       - {x: 18.437475, y: 3.7537374}
       - {x: 18.685884, y: 3.8641415}
       - {x: 18.79629, y: 3.9745455}
-      - {x: 19.072298, y: 4.664571}
-      - {x: 19.072298, y: 4.802576}
-      - {x: 18.934294, y: 4.91298}
-      - {x: 18.741087, y: 4.91298}
-      - {x: 17.913055, y: 4.747374}
-      - {x: 17.16783, y: 4.692172}
-      - {x: 17.140228, y: 4.664571}
-      - {x: 15.484167, y: 4.664571}
-      - {x: 15.456566, y: 4.692172}
-      - {x: 13.524495, y: 4.719773}
-      - {x: 13.496895, y: 4.747374}
-      - {x: 12.172046, y: 4.747374}
-      - {x: 11.095607, y: 4.719773}
-      - {x: 11.068006, y: 4.747374}
-      - {x: 10.129571, y: 4.774975}
-      - {x: 9.660354, y: 4.802576}
-      - {x: 7.755884, y: 4.885379}
-      - {x: 6.6518435, y: 4.940581}
-      - {x: 5.685808, y: 4.995783}
-      - {x: 4.995783, y: 5.050985}
-      - {x: 2.677298, y: 5.216591}
-      - {x: 1.3248485, y: 5.3821974}
-      - {x: 0.7176263, y: 5.4373994}
-      - {x: 0.5520202, y: 5.465}
-      - {x: -0.60722226, y: 5.465}
-      - {x: -0.7176263, y: 5.4373994}
-      - {x: -1.7940657, y: 5.3269954}
-      - {x: -3.0913134, y: 5.18899}
-      - {x: -3.8917425, y: 5.133788}
-      - {x: -6.1550255, y: 4.968182}
-      - {x: -7.755884, y: 4.885379}
-      - {x: -8.99793, y: 4.830177}
-      - {x: -10.129571, y: 4.774975}
-      - {x: -11.068006, y: 4.747374}
-      - {x: -12.144444, y: 4.719773}
-      - {x: -12.172046, y: 4.747374}
-      - {x: -13.496895, y: 4.747374}
-      - {x: -14.490531, y: 4.719773}
-      - {x: -15.456566, y: 4.692172}
-      - {x: -15.484167, y: 4.664571}
-      - {x: -17.140228, y: 4.664571}
-      - {x: -17.16783, y: 4.692172}
-      - {x: -17.940657, y: 4.747374}
-      - {x: -18.741087, y: 4.968182}
-      - {x: -19.1275, y: 4.857778}
-      - {x: -19.0999, y: 4.692172}
-      - {x: -18.879091, y: 4.333359}
+      - {x: 18.945812, y: 4.498581}
+      - {x: -18.910141, y: 4.457574}
       - {x: -18.823889, y: 3.9745455}
       - {x: -18.54788, y: 3.7813385}
       - {x: -18.161465, y: 3.7261364}
@@ -5792,7 +5748,7 @@ MonoBehaviour:
   sounds:
   - name: Wood
     clip: {fileID: 8300000, guid: 7e62f4ddde0cee442a121fb50615349b, type: 3}
-    volume: 0.2
+    volume: 0.1
     pitch: 1
     dimension: 0
     playOnAwake: 0
@@ -5800,7 +5756,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Sack
     clip: {fileID: 8300000, guid: b57ea761e24a9ac43886e60fe28d286c, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1
     dimension: 0
     playOnAwake: 0
@@ -5808,7 +5764,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: KnifeFly
     clip: {fileID: 8300000, guid: 765a8540d6995344a90e2866f120d077, type: 3}
-    volume: 0.585
+    volume: 0.1
     pitch: 1
     dimension: 0.41
     playOnAwake: 0
@@ -5816,7 +5772,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Stone
     clip: {fileID: 8300000, guid: c1a0b06ff410fe64096212607c83cd5f, type: 3}
-    volume: 0.585
+    volume: 0.2
     pitch: 1
     dimension: 0.41
     playOnAwake: 0
@@ -6079,6 +6035,85 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &572091118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 572091119}
+  - component: {fileID: 572091120}
+  m_Layer: 0
+  m_Name: Roof1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &572091119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572091118}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.05, y: -1.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 250901905}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &572091120
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572091118}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 1798461821
+  m_SortingLayer: 5
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 47945d06ed309e448869bac6cec4b7b2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 41.73, y: 8.54}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &590291562
 GameObject:
   m_ObjectHideFlags: 0
@@ -6233,6 +6268,7 @@ GameObject:
   - component: {fileID: 700899508}
   - component: {fileID: 700899507}
   - component: {fileID: 700899506}
+  - component: {fileID: 700899512}
   m_Layer: 11
   m_Name: Knife
   m_TagString: Knife
@@ -6492,6 +6528,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -124.5}
+--- !u!114 &700899512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700899505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 059c55aa26a94f54393cf6efcbc1b5fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawn: {fileID: 461870844}
+  respawnDepth: -10
 --- !u!1 &713383156
 GameObject:
   m_ObjectHideFlags: 0
@@ -6623,7 +6673,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 7.2609158, y: -2.52}
+  m_Offset: {x: 7.2609177, y: -62.076374}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6634,7 +6684,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 74.75746, y: 1}
+  m_Size: {x: 74.75746, y: 120.11274}
   m_EdgeRadius: 0
 --- !u!61 &748056084
 BoxCollider2D:
@@ -6928,6 +6978,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1202082655}
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Jump
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnLandEvent:
@@ -7020,8 +7081,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 827865842}
-        m_MethodName: DestroyKnifeParticles
+      - m_Target: {fileID: 1202082655}
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Catch
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnPickupEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 700899506}
+        m_MethodName: ResetThrow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7079,6 +7156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawn: {fileID: 461870844}
+  respawnDepth: -30
 --- !u!114 &827865846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17254,7 +17332,7 @@ MonoBehaviour:
   sounds:
   - name: Walk
     clip: {fileID: 8300000, guid: 0419c85179a72564588d5d47d08916e4, type: 3}
-    volume: 0.4
+    volume: 0.1
     pitch: 1
     dimension: 0
     playOnAwake: 0
@@ -17262,8 +17340,24 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Land
     clip: {fileID: 8300000, guid: aa4b6d3b88f1d3e478e60226a51c6347, type: 3}
-    volume: 0.6
+    volume: 0.2
     pitch: 0.7
+    dimension: 0
+    playOnAwake: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: d20afee76f1cdb54d9be2d33b2f5258a, type: 3}
+    volume: 0.2
+    pitch: 1
+    dimension: 0
+    playOnAwake: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Catch
+    clip: {fileID: 8300000, guid: c62daeaedeba3fe408469030738a8026, type: 3}
+    volume: 0.5
+    pitch: 1
     dimension: 0
     playOnAwake: 0
     loop: 0
@@ -18026,7 +18120,7 @@ MonoBehaviour:
   sounds:
   - name: Wind1
     clip: {fileID: 8300000, guid: 78d18698961912f43aeac2ec8f3f9a3e, type: 3}
-    volume: 0.75
+    volume: 0.1
     pitch: 0.82
     dimension: 0
     playOnAwake: 0
@@ -18034,7 +18128,23 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Wind2
     clip: {fileID: 8300000, guid: 8b982acc0ec908241aa2f4316e10c379, type: 3}
-    volume: 0.567
+    volume: 0.1
+    pitch: 1
+    dimension: 0
+    playOnAwake: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: Select
+    clip: {fileID: 8300000, guid: 01ea2090d6ca1444987fdef229d45f36, type: 3}
+    volume: 0.5
+    pitch: 1
+    dimension: 0
+    playOnAwake: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: Toggle
+    clip: {fileID: 8300000, guid: 4e19b43e403aa17489e932209d0d7e91, type: 3}
+    volume: 0.5
     pitch: 1
     dimension: 0
     playOnAwake: 0
@@ -18194,6 +18304,49 @@ Transform:
   m_Father: {fileID: 1747565858}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20.612001}
+--- !u!1 &1846972867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1846972869}
+  - component: {fileID: 1846972868}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1846972868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846972867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6338fc286de2f8d4c859e9f66d299b30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1846972869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846972867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1874190494
 GameObject:
   m_ObjectHideFlags: 0

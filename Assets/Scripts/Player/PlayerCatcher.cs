@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerCatcher : MonoBehaviour
 {
     public Transform respawn;
+    public float respawnDepth;
 
     Cinemachine.CinemachineVirtualCamera cameraController;
 
@@ -15,7 +16,7 @@ public class PlayerCatcher : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.y < -30)
+        if (transform.position.y < respawnDepth)
         {
             transform.position = respawn.position;
             cameraController.Follow = respawn;

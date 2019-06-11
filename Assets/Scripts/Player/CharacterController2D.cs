@@ -44,6 +44,7 @@ public class CharacterController2D : MonoBehaviour
     public UnityEvent OnLandEvent;
     public UnityEvent OnThrowEvent;
     public UnityEvent OnCatchEvent;
+    public UnityEvent OnPickupEvent;
 
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
@@ -69,6 +70,9 @@ public class CharacterController2D : MonoBehaviour
 
         if (OnCatchEvent == null)
             OnCatchEvent = new UnityEvent();
+
+        if (OnPickupEvent == null)
+            OnPickupEvent = new UnityEvent();
 
         if (OnCrouchEvent == null)
             OnCrouchEvent = new BoolEvent();
@@ -244,10 +248,12 @@ public class CharacterController2D : MonoBehaviour
             StartCoroutine(knifeController.KnifeReturn(returnSpeed));
         }
 
-        if ((knifeController.GetLanded() || knifeController.GetReturning()) && distanceFromKnife < catchDistance)
+        if (distanceFromKnife < catchDistance)
         {
-            OnCatchEvent.Invoke();
-            Debug.Log("Boop");
+            if (knifeController.GetReturning())
+                OnCatchEvent.Invoke();
+            else if (knifeController.GetLanded())
+                OnPickupEvent.Invoke();
         }
     }
 

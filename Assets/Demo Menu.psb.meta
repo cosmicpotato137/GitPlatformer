@@ -1,0 +1,401 @@
+fileFormatVersion: 2
+guid: 203e365c8d588ad42a21308fb38fa2f6
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: Demo Menu_GO/Demo Menu_GO
+    100002: 'Demo Menu_GO/Demo Menu_GO/GLASS '
+    100004: Demo Menu_GO/Demo Menu_GO/KNIFE
+    100006: Demo Menu_GO/Demo Menu_GO/Layer 1
+    100008: Demo Menu_GO/Demo Menu_GO/Layer 2
+    100010: Demo Menu_GO/Demo Menu_GO/Layer 3
+    100012: Demo Menu_GO/Demo Menu_GO/Layer 4
+    100014: Demo Menu_GO/Demo Menu_GO/Layer 5
+    100016: Demo Menu_GO/Demo Menu_GO/Layer 6
+    100018: Demo Menu_GO/Demo Menu_GO/Press Space
+    400000: Demo Menu_GO/Demo Menu_GO/Transform
+    400002: Demo Menu_GO/Demo Menu_GO/GLASS /Transform
+    400004: Demo Menu_GO/Demo Menu_GO/KNIFE/Transform
+    400006: Demo Menu_GO/Demo Menu_GO/Layer 1/Transform
+    400008: Demo Menu_GO/Demo Menu_GO/Layer 2/Transform
+    400010: Demo Menu_GO/Demo Menu_GO/Layer 3/Transform
+    400012: Demo Menu_GO/Demo Menu_GO/Layer 4/Transform
+    400014: Demo Menu_GO/Demo Menu_GO/Layer 5/Transform
+    400016: Demo Menu_GO/Demo Menu_GO/Layer 6/Transform
+    400018: Demo Menu_GO/Demo Menu_GO/Press Space/Transform
+    2800000: Demo Menu
+    21200000: Demo Menu_GO/Demo Menu_GO/GLASS /SpriteRenderer
+    21200002: Demo Menu_GO/Demo Menu_GO/KNIFE/SpriteRenderer
+    21200004: Demo Menu_GO/Demo Menu_GO/Layer 1/SpriteRenderer
+    21200006: Demo Menu_GO/Demo Menu_GO/Layer 2/SpriteRenderer
+    21200008: Demo Menu_GO/Demo Menu_GO/Layer 3/SpriteRenderer
+    21200010: Demo Menu_GO/Demo Menu_GO/Layer 4/SpriteRenderer
+    21200012: Demo Menu_GO/Demo Menu_GO/Layer 5/SpriteRenderer
+    21200014: Demo Menu_GO/Demo Menu_GO/Layer 6/SpriteRenderer
+    21200016: Demo Menu_GO/Demo Menu_GO/Press Space/SpriteRenderer
+    21300000: 34533dba4cc74e94caf2f4532c4cc3eb
+    21300002: 7cad696dbe2d2524baa415c0003b176b
+    21300004: 569b012d8ba3d5849b7a0e99ef648831
+    21300006: be1d2aecb9fd8464eba89a090af73ff2
+    21300008: bde4cfd4f79ecd94885e8c3483ca2277
+    21300010: f619db1b6d7d5fd4088674edcb1c6d07
+    21300012: f588f7e1a338d8f4785dd21593e558a8
+    21300014: bcd7bad85fee3914382cbc20589e35e4
+    21300016: 018aea8ee50f5964b9726355bcb4f708
+    100100000: Demo Menu_GO
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Layer 5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 7780
+      width: 3840
+      height: 5
+    spriteID: 34533dba4cc74e94caf2f4532c4cc3eb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 6450}
+  - name: Press Space
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3022
+      y: 6431
+      width: 588
+      height: 112
+    spriteID: 7cad696dbe2d2524baa415c0003b176b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1395, y: 5895}
+  - name: 'GLASS '
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1730
+      y: 6431
+      width: 1284
+      height: 289
+    spriteID: 569b012d8ba3d5849b7a0e99ef648831
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 456, y: 5101}
+  - name: KNIFE
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1730
+      y: 6728
+      width: 1212
+      height: 282
+    spriteID: be1d2aecb9fd8464eba89a090af73ff2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 417, y: 5678}
+  - name: Layer 6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6431
+      width: 1718
+      height: 1341
+    spriteID: bde4cfd4f79ecd94885e8c3483ca2277
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1074, y: 6012}
+  - name: Layer 3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4340
+      width: 3840
+      height: 1165
+    spriteID: f619db1b6d7d5fd4088674edcb1c6d07
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 3346}
+  - name: Layer 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 5513
+      width: 3840
+      height: 910
+    spriteID: f588f7e1a338d8f4785dd21593e558a8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4963}
+  - name: Layer 4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 3840
+      height: 2160
+    spriteID: bcd7bad85fee3914382cbc20589e35e4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4}
+  - name: Layer 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2172
+      width: 3840
+      height: 2160
+    spriteID: 018aea8ee50f5964b9726355bcb4f708
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 2172}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 1024
+  importedTextureHeight: 2048
+  documentSize: {x: 3840, y: 2160}
+  textureActualWidth: 4096
+  textureActualHeight: 8192
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Layer 5
+    spriteName: Layer 5
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 34533dba4cc74e94caf2f4532c4cc3eb
+    layerID: 15
+    mosaicPosition: {x: 4, y: 7780}
+  - name: Press Space
+    spriteName: Press Space
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7cad696dbe2d2524baa415c0003b176b
+    layerID: 17
+    mosaicPosition: {x: 3022, y: 6431}
+  - name: 'GLASS '
+    spriteName: 'GLASS '
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 569b012d8ba3d5849b7a0e99ef648831
+    layerID: 9
+    mosaicPosition: {x: 1730, y: 6431}
+  - name: KNIFE
+    spriteName: KNIFE
+    isGroup: 0
+    parentIndex: -1
+    spriteID: be1d2aecb9fd8464eba89a090af73ff2
+    layerID: 5
+    mosaicPosition: {x: 1730, y: 6728}
+  - name: Layer 6
+    spriteName: Layer 6
+    isGroup: 0
+    parentIndex: -1
+    spriteID: bde4cfd4f79ecd94885e8c3483ca2277
+    layerID: 16
+    mosaicPosition: {x: 4, y: 6431}
+  - name: Layer 3
+    spriteName: Layer 3
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f619db1b6d7d5fd4088674edcb1c6d07
+    layerID: 11
+    mosaicPosition: {x: 4, y: 4340}
+  - name: Layer 2
+    spriteName: Layer 2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f588f7e1a338d8f4785dd21593e558a8
+    layerID: 10
+    mosaicPosition: {x: 4, y: 5513}
+  - name: Layer 4
+    spriteName: Layer 4
+    isGroup: 0
+    parentIndex: -1
+    spriteID: bcd7bad85fee3914382cbc20589e35e4
+    layerID: 13
+    mosaicPosition: {x: 4, y: 4}
+  - name: Layer 1
+    spriteName: Layer 1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 018aea8ee50f5964b9726355bcb4f708
+    layerID: 3
+    mosaicPosition: {x: 4, y: 2172}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+  boneGOs: []
+  generateGOHierarchy: 0
+  textureAssetName: Demo Menu
+  prefabAssetName: Demo Menu_GO

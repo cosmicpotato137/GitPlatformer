@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/_Scenes/RathTest.unity
-    guid: ee5533d5167c31a4e87faa9276cafe28
+  - enabled: 1
+    path: Assets/_Scenes/Menu.unity
+    guid: efb19bb0123b00e4ba28fe1dbf994c22
   - enabled: 1
     path: Assets/_Scenes/NewMap.unity
     guid: 875aacdcbd0ed6946983231ab6d3d371
