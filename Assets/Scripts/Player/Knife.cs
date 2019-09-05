@@ -111,6 +111,7 @@ public class Knife : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             rb.simulated = false;
+            returning = true;
 
             targetDir = ((hand.position + handOffset) - transform.position).normalized;
 
@@ -123,7 +124,6 @@ public class Knife : MonoBehaviour
             soundManager.PlaySound("KnifeFly");
 
             transform.parent = null;
-            returning = true;
 
             transform.rotation = VectorToRotation(targetDir);
             rb.simulated = true;

@@ -7156,7 +7156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawn: {fileID: 461870844}
-  respawnDepth: -30
+  respawnDepth: -10
 --- !u!114 &827865846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17279,7 +17279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158426489}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.93, z: 0}
+  m_LocalPosition: {x: 0.01, y: 3.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 700899511}
@@ -17331,7 +17331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Walk
-    clip: {fileID: 8300000, guid: 0419c85179a72564588d5d47d08916e4, type: 3}
+    clip: {fileID: 8300000, guid: f72832cd97064ef43a130f585bb404a7, type: 3}
     volume: 0.1
     pitch: 1
     dimension: 0
@@ -17339,7 +17339,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Land
-    clip: {fileID: 8300000, guid: aa4b6d3b88f1d3e478e60226a51c6347, type: 3}
+    clip: {fileID: 8300000, guid: 854a9cdb67e6e574bb0e8fe7b03b2e20, type: 3}
     volume: 0.2
     pitch: 0.7
     dimension: 0
